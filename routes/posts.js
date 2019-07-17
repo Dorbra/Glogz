@@ -53,13 +53,13 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(400).json('ERROR: ' + err));
 });
 
-router.delete('/:id', auth, (req, res) => {
+router.delete('/delete/:id', /* auth */ (req, res) => {
     Post.findByIdAndDelete(req.params.id)
         .then(() => res.json('Deleted Post'))
         .catch(err => res.status(400).json("ERROR: " + err));
 });
 
-router.patch('/:id', (req, res) => {
+router.patch('/edit/:id', (req, res) => {
     Post.findById(req.params.id)
         .then(post => {
             post.title = req.body.title;

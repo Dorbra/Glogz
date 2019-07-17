@@ -19,7 +19,7 @@ const App = () => {
                     <Route exact path="/" component={PostList} /> {/* '/' -> PostList */}
                     <Route path="/posts/new" component={PostCreate} /> {/* '/posts/new' -> PostCreate */}
                     <Route path="/posts/edit/:id" component={PostEdit} /> {/* '/posts/edit' -> PostEdit */}
-                    <Route path="/posts/delete" component={PostDelete} /> {/* '/posts/delete' -> PostDelete */}
+                    <Route path="/posts/delete/:id" component={PostDelete} /> {/* '/posts/delete' -> PostDelete */}
                     <Route path="/posts/show" component={PostShow} /> {/* '/posts/show' -> PostShow */}
                 </Router>
             </BrowserRouter>

@@ -46,7 +46,7 @@ export const fetchPost = (id) => async (dispatch) => {
 };
 
 export const editPost = (id, formValues) => async (dispatch) => {
-    const res = await postsAPI.patch(`/${id}`, formValues);
+    const res = await postsAPI.patch(`/edit/${id}`, formValues);
 
     dispatch({
         type: EDIT_POST,
@@ -56,10 +56,11 @@ export const editPost = (id, formValues) => async (dispatch) => {
 };
 
 export const deletePost = (id) => async (dispatch) => {
-    await postsAPI.delete(`/${id}`);
+    await postsAPI.delete(`/delete/${id}`);
 
     dispatch({
         type: DELETE_POST,
         payload: id
     });
+    history.push('/');
 };
