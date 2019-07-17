@@ -1,0 +1,31 @@
+{
+  "name": "glog",
+  "version": "1.0.0",
+  "description": "Blog for Gurus",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Doron Brand",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "config": "^3.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.14",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.0",
+    "nodemon": "^1.19.1",
+    "redux-thunk": "^2.3.0"
+  }
+}
