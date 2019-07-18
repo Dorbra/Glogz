@@ -16,7 +16,9 @@ class PostList extends React.Component {
                     {this.renderAdmin(post)}
                     <i className="envelope icon" />
                     <div className="content">
-                        <h3 className="header"> {post.title} </h3>
+                        <h3 className="header">
+                            <Link to={`/posts/${post._id}`}> {post.title} </Link>
+                        </h3>
                         <p className="ui body"> {post.body} </p>
                         <p className="ui label"> {post.createdAt} </p>
                         <p className="ui sub header"> {post.author} </p>
