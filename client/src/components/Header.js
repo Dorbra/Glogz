@@ -5,19 +5,19 @@ import GoogleAuth from './GoogleAuth';
 const Header = () => {
 
     return (
-        <BrowserRouter>
-            <div className="ui secondary pointing menu">
-                <Link to='/' className="item">
-                    Poster
-            </Link>
-                <div className="right menu">
-                    <Link to="/" className="item">
-                        All Posts
+        //        <BrowserRouter>
+        <div className="ui secondary pointing menu">
+            <Link to='/' className="item">
+                Poster
                 </Link>
-                    <GoogleAuth />
-                </div>
+            <div className="right menu">
+                <Link to="/" className="item">
+                    All Posts
+                </Link>
+                <GoogleAuth />
             </div>
-        </BrowserRouter>
+        </div>
+        // </BrowserRouter>
     );
 };
 

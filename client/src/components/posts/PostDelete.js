@@ -21,7 +21,7 @@ class PostDelete extends React.Component {
                 <Link to="/" className="ui button">Cancel</Link>
             </Fragment>
         );
-    }
+    };
 
     onDismiss = () => {
         history.push('/');
