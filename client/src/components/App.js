@@ -1,6 +1,6 @@
 import React from 'react';
-// import { Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NotFound from './NotFound';
+import { Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import PostCreate from './posts/PostCreate';
 import PostShow from './posts/PostShow';
@@ -13,7 +13,7 @@ import history from '../history';
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter history={history}>
+            <Router history={history}>
                 <Header />
 
                 <Switch>
@@ -22,9 +22,10 @@ const App = () => {
                     <Route path="/posts/edit/:id" exact component={PostEdit} />
                     <Route path="/posts/delete/:id" exact component={PostDelete} />
                     <Route path="/posts/:id" exact component={PostShow} />
+                    <Route component={NotFound} />
                 </Switch>
-            </BrowserRouter>
-        </div>
+            </Router>
+        </div >
     )
 };
 

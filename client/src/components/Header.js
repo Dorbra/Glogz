@@ -5,7 +5,6 @@ import GoogleAuth from './GoogleAuth';
 const Header = () => {
 
     return (
-        //        <BrowserRouter>
         <div className="ui secondary pointing menu">
             <Link to='/' className="item">
                 Poster
@@ -17,7 +16,6 @@ const Header = () => {
                 <GoogleAuth />
             </div>
         </div>
-        // </BrowserRouter>
     );
 };
 
