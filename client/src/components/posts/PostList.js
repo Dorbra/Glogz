@@ -21,7 +21,6 @@ class PostList extends React.Component {
                         </h3>
                         <p className="ui body"> {post.body} </p>
                         <p className="ui label"> {post.createdAt} </p>
-                        <p className="ui sub header"> {post.author} </p>
                     </div>
                 </div>
             )
