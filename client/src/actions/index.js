@@ -26,7 +26,7 @@ export const fetchPosts = () => async (dispatch) => {
 
 export const createPost = (formValues) => async (dispatch, getState) => {
     const userId = getState().auth.userId; // { userId } = .auth
-    const res = await api.post('/posts/new', { ...formValues, userId });
+    const res = await api.post('/posts/', { ...formValues, userId });
 
     dispatch({
         type: CREATE_POST,

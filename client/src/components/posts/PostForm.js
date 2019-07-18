@@ -27,13 +27,13 @@ class PostForm extends React.Component {
         )
     };
 
-    onSubmit = (formValues) => {
+    handleSubmit = (formValues) => {
         this.props.onSubmit(formValues);
     };
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
+            <form onSubmit={this.props.handleSubmit(this.handleSubmit)} className="ui form error">
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="body" component={this.renderInput} label="Add Body" />
 
