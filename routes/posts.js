@@ -66,7 +66,7 @@ router.delete('/delete/:id', /* auth */(req, res) => {
         .catch(err => res.status(400).json("ERROR: " + err));
 });
 
-router.patch('/edit/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     console.log("PATCH /posts/id Updating Post....");
     Post.findById(req.params.id)
         .then(post => {

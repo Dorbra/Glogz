@@ -46,7 +46,7 @@ export const fetchPost = (id) => async (dispatch) => {
 };
 
 export const editPost = (id, formValues) => async (dispatch) => {
-    const res = await api.patch(`/edit/${id}`, formValues);
+    const res = await api.put(`/edit/${id}`, formValues);
 
     dispatch({
         type: EDIT_POST,
