@@ -12,6 +12,12 @@ router.get('/', (req, res) => {
     // User.findOne({author: author}).populate("posts").exec((err, user) => { })
 });
 
+router.get('/new', (req, res) => {
+    console.log("GET /posts/new To create Posts....");
+    
+    res.redirect('/');
+});
+
 // Private POST users/add
 // Creating a Post for current User.
 router.post('/', /*auth */(req, res) => {
@@ -62,7 +68,7 @@ router.get('/:id', (req, res) => {
 router.delete('/delete/:id', /* auth */(req, res) => {
     console.log("DELETE /posts/id Deleting Post....");
     Post.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Deleted Post'))     
+        .then(() => res.json('Deleted Post'))
         .catch(err => res.status(400).json("ERROR: " + err));
 });
 
@@ -81,5 +87,6 @@ router.patch('/edit/:id', (req, res) => {
         })
         .catch(err => res.status(400).json('ERROR: ' + err));
 });
+
 
 module.exports = router;
