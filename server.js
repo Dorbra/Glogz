@@ -13,21 +13,20 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// MongoDB setup
+// MongoDB //
 const db = config.get('mongoURI');
 mongoose.connect(db,
   { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.log(err));
 
-// ========= ROUTES ========= //
+// ROUTES //
 app.use("/auth", require("./routes/auth"));
 app.use("/users", require("./routes/users"));
 app.use("/posts", require("./routes/posts"));
 
-
-// ========== SETUP =============== //
-// Serve static assets if in production
+// SETUP //
+// Serve static assets when on production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static(path.join(__dirname, 'client/build')));
