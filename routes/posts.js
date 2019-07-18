@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     console.log("GET /posts/new To create Posts....");
     
-    res.redirect('/');
+    res.redirect('/posts/new');
 });
 
 // Private POST users/add
