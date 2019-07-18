@@ -37,7 +37,7 @@ export const createPost = (formValues) => async (dispatch, getState) => {
 };
 
 export const fetchPost = (id) => async (dispatch) => {
-    const res = await api.get(`/${id}`);
+    const res = await api.get(`/posts/${id}`);
 
     dispatch({
         type: FETCH_POST,
@@ -46,7 +46,7 @@ export const fetchPost = (id) => async (dispatch) => {
 };
 
 export const editPost = (id, formValues) => async (dispatch) => {
-    const res = await api.put(`/edit/${id}`, formValues);
+    const res = await api.put(`/posts/edit/${id}`, formValues);
 
     dispatch({
         type: EDIT_POST,
@@ -56,7 +56,7 @@ export const editPost = (id, formValues) => async (dispatch) => {
 };
 
 export const deletePost = (id) => async (dispatch) => {
-    await api.delete(`/delete/${id}`);
+    await api.delete(`/posts/delete/${id}`);
 
     dispatch({
         type: DELETE_POST,
