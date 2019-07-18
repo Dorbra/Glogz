@@ -21,7 +21,7 @@ const App = () => {
                     <Route path="/posts/new" exact component={PostCreate} />
                     <Route path="/posts/edit/:id" exact component={PostEdit} />
                     <Route path="/posts/delete/:id" exact component={PostDelete} />
-                    <Route path="/posts/:id" exact component={PostShow} />
+                    <Route path="/posts/show/:id" exact component={PostShow} />
                     <Route component={NotFound} />
                 </Switch>
             </Router>

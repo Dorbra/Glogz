@@ -17,7 +17,7 @@ class PostList extends React.Component {
                     <i className="envelope icon" />
                     <div className="content">
                         <h3 className="header">
-                            <Link to={`/posts/${post._id}`}> {post.title} </Link>
+                            <Link to={`/posts/show/${post._id}`}> {post.title} </Link>
                         </h3>
                         <p className="ui body"> {post.body} </p>
                         <p className="ui label"> {post.createdAt} </p>
