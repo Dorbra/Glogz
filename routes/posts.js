@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 const auth = require('../authenticate');
-const User = require('../models/User');
 
-router.route('/').get((req, res) => {
+
+router.get('/', (req, res) => {
+    console.log("Hi, Fetching Posts....");
     Post.find()
         .then(posts => res.json(posts))
         .catch(err => res.status(400).json('ERROR: ' + err));
@@ -53,7 +54,7 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(400).json('ERROR: ' + err));
 });
 
-router.delete('/delete/:id', /* auth */ (req, res) => {
+router.delete('/delete/:id', /* auth */(req, res) => {
     Post.findByIdAndDelete(req.params.id)
         .then(() => res.json('Deleted Post'))
         .catch(err => res.status(400).json("ERROR: " + err));

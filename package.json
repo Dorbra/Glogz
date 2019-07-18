@@ -40,5 +40,8 @@
     "express",
     "create-react-app",
     "react"
-  ]
+  ],
+  "devDependencies": {
+    "dotenv": "^8.0.0"
+  }
 }

@@ -3,6 +3,7 @@ import {
     FETCH_POSTS, FETCH_POST, CREATE_POST, DELETE_POST, EDIT_POST
 } from '../actions/types';
 
+
 export default (state = {}, action) => {
     switch (action.type) {
 
