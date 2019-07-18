@@ -1,5 +1,5 @@
-import postsAPI from '../components/posts/posts';
 import history from '../history';
+import api from '../components/posts/api';
 import { SIGN_IN, SIGN_OUT, FETCH_POSTS, FETCH_POST, CREATE_POST, DELETE_POST, EDIT_POST } from './types';
 
 export const signIn = (userId) => {
@@ -15,9 +15,18 @@ export const signOut = () => {
     };
 };
 
+export const fetchPosts = () => async (dispatch) => {
+    const res = await api.get('/posts');
+
+    dispatch({
+        type: FETCH_POSTS,
+        payload: res.data
+    });
+};
+
 export const createPost = (formValues) => async (dispatch, getState) => {
     const userId = getState().auth.userId; // { userId } = .auth
-    const res = await postsAPI.post('/', { ...formValues, userId });
+    const res = await api.post('/posts', { ...formValues, userId });
 
     dispatch({
         type: CREATE_POST,
@@ -27,17 +36,8 @@ export const createPost = (formValues) => async (dispatch, getState) => {
     history.push('/');
 };
 
-export const fetchPosts = () => async (dispatch) => {
-    const res = await postsAPI.get('/');
-
-    dispatch({
-        type: FETCH_POSTS,
-        payload: res.data
-    });
-};
-
 export const fetchPost = (id) => async (dispatch) => {
-    const res = await postsAPI.get(`/${id}`);
+    const res = await api.get(`/${id}`);
 
     dispatch({
         type: FETCH_POST,
@@ -46,7 +46,7 @@ export const fetchPost = (id) => async (dispatch) => {
 };
 
 export const editPost = (id, formValues) => async (dispatch) => {
-    const res = await postsAPI.patch(`/edit/${id}`, formValues);
+    const res = await api.patch(`/edit/${id}`, formValues);
 
     dispatch({
         type: EDIT_POST,
@@ -56,7 +56,7 @@ export const editPost = (id, formValues) => async (dispatch) => {
 };
 
 export const deletePost = (id) => async (dispatch) => {
-    await postsAPI.delete(`/delete/${id}`);
+    await api.delete(`/delete/${id}`);
 
     dispatch({
         type: DELETE_POST,

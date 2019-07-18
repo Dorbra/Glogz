@@ -4,7 +4,7 @@ const auth = require('../authenticate');
 
 
 router.get('/', (req, res) => {
-    console.log("Hi, Fetching Posts....");
+    console.log("GET /posts Fetching Posts....");
     Post.find()
         .then(posts => res.json(posts))
         .catch(err => res.status(400).json('ERROR: ' + err));
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 // Private POST users/add
 // Creating a Post for current User.
 router.post('/', /*auth */(req, res) => {
-    console.log("/posts: ", req.body);
+    console.log("POST /posts Creating Post....");
     const author = req.body.userId;
     const { title, body } = req.body;
 
@@ -43,24 +43,31 @@ router.post('/', /*auth */(req, res) => {
                     }
                 })
             }) */
+            console.log(`Post Created: ${newPost.title}`);
             res.json(post);
         })
         .catch(err => res.status(400).json("catch: " + err));
 });
 
 router.get('/:id', (req, res) => {
+    console.log("GET /posts/id fetch a Post....");
     Post.findById(req.params.id)
-        .then(post => res.json(post))
+        .then(post => {
+            console.log(`Fetched Post ${Post.title}`);
+            res.json(post);
+        })
         .catch(err => res.status(400).json('ERROR: ' + err));
 });
 
 router.delete('/delete/:id', /* auth */(req, res) => {
+    console.log("DELETE /posts/id Deleting Post....");
     Post.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Deleted Post'))
+        .then(() => res.json('Deleted Post'))     
         .catch(err => res.status(400).json("ERROR: " + err));
 });
 
 router.patch('/edit/:id', (req, res) => {
+    console.log("PATCH /posts/id Updating Post....");
     Post.findById(req.params.id)
         .then(post => {
             post.title = req.body.title;
