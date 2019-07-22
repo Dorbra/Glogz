@@ -1,7 +1,13 @@
-# Glog
-By Doron Brand
+# Glog - 
+A blog for your Glogs, as you become a Guru
 
-Made using MERN-Stack:
+_By Doron Brand_
+
+Built using MERN-Stack:
 MongoDB, Express.js, React/Redux, Node-js
 
-A blog for your Glogs, as you become a Guru
+Changes:
+- Back-End JWT Authentication is partly implemented.
+- Registration/Login System - currently using Google OAuth2
+- Posts Re-factoring, to show more Author's info.
+
